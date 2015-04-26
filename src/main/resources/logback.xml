@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation)
+See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+<configuration scan="true" scanPeriod="60 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!-- To enable JMX Management -->
+    <jmxConfigurator/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">  
+       <!-- 日志输出编码 -->    
+       <Encoding>UTF-8</Encoding>     
+        <layout class="ch.qos.logback.classic.PatternLayout">     
+             <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->   
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n     
+            </pattern>     
+        </layout>     
+    </appender>
+    <!-- 无用日志禁用 -->
+    <root level="DEBUG">     
+        <appender-ref ref="STDOUT" />     
+        <appender-ref ref="FILE" />     
+    </root> 
+</configuration>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<h2>Hello World!</h2>
+
+<table>
+	<#list user as u>
+	<tr>
+	<td>${u.id}</td>
+	<td>${u.user_acc}</td>
+	<td>${u.name}</td>
+	<td><button>删除</button></td>
+	</tr>
+	</#list>
+</table>
+
+</body>
+</html>
